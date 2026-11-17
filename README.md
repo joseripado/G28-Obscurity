@@ -1,9 +1,5 @@
-====================================================================
 PROJECT G28: Security Through Obscurity: Esoteric Languages & SMC in C
 Student: José Javier Ripado Bermejo (er2520@edu.hmu.gr)
-Course: Computer Systems Security - Hellenic Mediterranean University (HMU)
-Tutor: Prof. Miltos Grammatikakis
-====================================================================
 
 GitHub Repository: https://github.com/joseripado/G28-Obscurity
 
