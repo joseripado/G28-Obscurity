@@ -1,7 +1,7 @@
 #include <stdio.h>
 
-int main() {
-	printf("Hello world\n");
-	return 0;
+int main(void) {
+    printf("Toolchain verification: WSL build environment active.\n");
+    return 0;
 }
 

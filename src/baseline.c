@@ -11,7 +11,7 @@ int main(void) {
         return 1;
     }
 
-    // Target Asset: Plaintext hardcoded secret key (vulnerable to static analysis)
+    // Plaintext hardcoded secret key (Target Asset)
     if (strcmp(key, "HMU-SECURE-KEY-2026") == 0) {
         printf("Access Granted! Welcome Admin.\n");
     } else {
