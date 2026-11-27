@@ -16,7 +16,7 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    // 2. Read entire program into memory
+    // 2. Determine file size and allocate buffer
     fseek(fp, 0, SEEK_END);
     long code_size = ftell(fp);
     fseek(fp, 0, SEEK_SET);
@@ -27,16 +27,23 @@ int main(int argc, char *argv[]) {
         fclose(fp);
         return 1;
     }
-    fread(code, 1, code_size, fp);
+
+    // 3. Read source code into memory buffer with warning-free check
+    if (fread(code, 1, code_size, fp) != (size_t)code_size) {
+        fprintf(stderr, "Error reading source file\n");
+        free(code);
+        fclose(fp);
+        return 1;
+    }
     fclose(fp);
     code[code_size] = '\0';
 
-    // 3. Initialize 30,000-cell tape and pointers
+    // 4. Initialize 30,000-cell tape grid and pointers
     unsigned char tape[TAPE_SIZE] = {0};
     unsigned char *ptr = tape;
     long ip = 0; // Instruction Pointer
 
-    // 4. Execution loop for the 8 opcodes
+    // 5. Execution loop for the 8 Brainfuck opcodes
     while (ip < code_size) {
         switch (code[ip]) {
             case '>': ++ptr; break;
